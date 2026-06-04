@@ -1,0 +1,172 @@
+/* --- Variables & Reset --- */
+:root {
+  --primary-color: #ff9f43; /* Un bel orange gourmand */
+  --bg-color: #f8f9fa;
+  --text-main: #2d3436;
+}
+
+body {
+  font-family: 'Poppins', sans-serif; /* Police moderne et ronde */
+  background-color: var(--bg-color);
+  color: var(--text-main);
+}
+
+.title-font {
+  letter-spacing: -0.5px;
+}
+
+/* --- Loader / Spinner --- */
+.loader-container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--bg-color);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 9999;
+  transition: opacity 0.5s ease;
+}
+
+.fade-in {
+  animation: fadeIn 0.8s ease-in;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- Header / Hero Section --- */
+.hero-section {
+  border-top: 5px solid var(--primary-color);
+}
+
+.img-wrapper {
+  overflow: hidden;
+  position: relative;
+}
+
+.recipe-main-img {
+  width: 100%;
+  max-height: 350px;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.img-wrapper:hover .recipe-main-img {
+  transform: scale(1.05); /* Zoom léger de l'image au survol */
+}
+
+/* --- Cartes des Ingrédients (Animations pro) --- */
+.ingredient-card {
+  border: none;
+  border-radius: 12px;
+  background-color: #ffffff;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  cursor: pointer;
+}
+
+/* Animation au survol */
+.ingredient-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.08) !important; /* Ombre plus diffuse */
+}
+
+.img-container {
+  height: 120px;
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle, #fff 0%, #f1f2f6 100%);
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+}
+
+.ingredient-img {
+  max-height: 100%;
+  max-width: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 6px rgba(0,0,0,0.05)); /* Ombre portée sur le PNG */
+  transition: transform 0.3s ease;
+}
+
+.ingredient-card:hover .ingredient-img {
+  transform: scale(1.1) rotate(2deg); /* L'image grandit et tourne légèrement */
+}
+
+.card-title {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+/* --- Liste des Étapes (Timeline Style) --- */
+.step-list {
+  counter-reset: step-counter;
+  list-style: none;
+  position: relative;
+}
+
+/* Barre verticale pour lier les étapes */
+.step-list::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 24px; /* Centré avec les pastilles */
+  width: 2px;
+  background-color: #e9ecef;
+  z-index: 1;
+}
+
+.step-item {
+  position: relative;
+  padding-left: 4rem;
+  margin-bottom: 2rem;
+  z-index: 2;
+  transition: transform 0.2s ease;
+}
+
+.step-item:hover {
+  transform: translateX(5px); /* Décale le texte légèrement à droite au survol */
+}
+
+.step-item p {
+  background-color: #f8f9fa;
+  padding: 1rem 1.5rem;
+  border-radius: 8px;
+  border-left: 4px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.step-item:hover p {
+  background-color: #fff;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  border-left: 4px solid var(--primary-color);
+}
+
+/* Pastilles numérotées */
+.step-item::before {
+  counter-increment: step-counter;
+  content: counter(step-counter);
+  position: absolute;
+  left: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 34px;
+  height: 34px;
+  background-color: var(--primary-color);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1rem;
+  box-shadow: 0 0 0 4px #fff, 0 4px 8px rgba(0,0,0,0.1); /* Bordure blanche pour couper la ligne */
+  z-index: 3;
+}
