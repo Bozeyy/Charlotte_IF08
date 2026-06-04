@@ -5,10 +5,7 @@ let ingredients = [];
  */
 async function loadDataAndFetch() {
   try {
-    // Lance la récupération de l'image en parallèle
-    const imagePromise = fetchCheesecakeImage();
-
-    const cachedIngredients = localStorage.getItem("cheesecakeIngredients");
+    const cachedIngredients = localStorage.getItem("charlotteIngredients");
 
     if (cachedIngredients) {
       console.log("⚡ Chargement depuis le cache...");
@@ -23,21 +20,21 @@ async function loadDataAndFetch() {
       await fetch_open_food_facts(DATA_JSON);
       
       try {
-        localStorage.setItem("cheesecakeIngredients", JSON.stringify(ingredients));
+        // Sauvegarde dans le cache sous un nouveau nom
+        localStorage.setItem("charlotteIngredients", JSON.stringify(ingredients));
       } catch (e) {
         console.warn("Le cache localStorage n'est pas disponible.", e);
       }
     }
 
-    // On attend que l'image et les ingrédients soient prêts
-    await Promise.all([imagePromise, addIngredient()]);
+    // On attend que les ingrédients soient prêts dans le DOM
+    await addIngredient();
 
-    // Une fois tout chargé, on cache le loader et on affiche le contenu
+    // On cache le loader
     hideLoader();
 
   } catch (error) {
     console.error("Erreur globale :", error);
-    // En cas d'erreur, on affiche quand même la page pour ne pas bloquer l'utilisateur
     hideLoader(); 
   }
 }
@@ -49,31 +46,17 @@ function hideLoader() {
   const loader = document.getElementById('loader');
   const mainContent = document.getElementById('main-content');
   
-  loader.style.opacity = '0';
-  setTimeout(() => {
-    loader.classList.add('d-none');
-    mainContent.classList.remove('d-none');
-  }, 500); // Attend la fin de la transition d'opacité
-}
-
-/**
- * Appel API TheMealDB pour l'image
- */
-async function fetchCheesecakeImage() {
-  try {
-    const response = await fetch("https://www.themealdb.com/api/json/v1/1/search.php?s=cheesecake");
-    const data = await response.json();
-    
-    if (data.meals && data.meals.length > 0) {
-      document.getElementById("recipe-image").src = data.meals[0].strMealThumb;
-    }
-  } catch (error) {
-    console.error("Erreur Image:", error);
+  if(loader && mainContent) {
+    loader.style.opacity = '0';
+    setTimeout(() => {
+      loader.classList.add('d-none');
+      mainContent.classList.remove('d-none');
+    }, 500);
   }
 }
 
 /**
- * Appel API Open Food Facts en parallèle (Promis.all)
+ * Appel API Open Food Facts en parallèle (Promise.all)
  */
 async function fetch_open_food_facts(DATA_JSON) {
   const validNutriscores = ["a", "b", "c", "d", "e"];
@@ -120,13 +103,11 @@ async function addIngredient() {
   for (const ingredient of ingredients) {
     const score = ingredient.nutriscore_grade;
     
-    // Définition de la classe Bootstrap pour les badges selon le score
     let badgeClass = "bg-secondary";
     if (score === "A" || score === "B") badgeClass = "bg-success";
     else if (score === "C") badgeClass = "bg-warning text-dark";
     else if (score === "D" || score === "E") badgeClass = "bg-danger";
 
-    // Design pro de la carte
     const cardHTML = `
       <div class="col-6 col-sm-4 col-md-3 col-lg-2">
         <div class="card h-100 ingredient-card shadow-sm border-0">

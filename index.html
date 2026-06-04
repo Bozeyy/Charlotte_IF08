@@ -4,7 +4,8 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="author" content="Juliette Siebering" />
-    <title>Le Véritable Cheesecake</title>
+    <title>La Charlotte aux fraises</title>
+    <link rel="icon" href="data:,">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -19,7 +20,7 @@
   <body class="bg-light">
     
     <div id="loader" class="loader-container">
-      <div class="spinner-border text-warning" role="status" style="width: 3rem; height: 3rem;">
+      <div class="spinner-border text-danger" role="status" style="width: 3rem; height: 3rem;">
         <span class="visually-hidden">Chargement...</span>
       </div>
       <p class="mt-3 fw-semibold text-secondary">Préparation des ingrédients...</p>
@@ -27,26 +28,25 @@
 
     <main class="container py-5 d-none fade-in" id="main-content">
       
-      <header class="row align-items-center mb-5 bg-white p-4 p-md-5 rounded-4 shadow-sm hero-section">
+      <header class="row align-items-center mb-5 bg-white p-4 p-md-5 rounded-4 shadow-sm hero-section" style="border-top-color: #ff4757;">
         <div class="col-md-6 order-2 order-md-1 text-center text-md-start mt-4 mt-md-0">
-          <span class="badge bg-warning text-dark mb-2 px-3 py-2 rounded-pill"><i class="bi bi-star-fill me-1"></i> Recette Star</span>
-          <h1 class="display-4 fw-bold text-dark mb-3 title-font">Le véritable Cheesecake</h1>
+          <span class="badge bg-danger mb-2 px-3 py-2 rounded-pill"><i class="bi bi-heart-fill me-1"></i> Dessert Étoilé</span>
+          <h1 class="display-4 fw-bold text-dark mb-3 title-font">La Charlotte aux fraises</h1>
           <p class="lead text-muted mb-4">
-            La recette incontournable du véritable Cheesecake New-Yorkais. Crémeux, gourmand, avec une base biscuitée délicieusement croquante.
+            Recette d'une charlotte aux fraises inratable, facile à faire, fraîche et intensément fruitée. Le dessert parfait pour régaler vos proches !
           </p>
           <div class="d-flex gap-3 justify-content-center justify-content-md-start text-secondary small fw-semibold">
-            <span><i class="bi bi-clock"></i> 1h15</span>
-            <span><i class="bi bi-people"></i> 8 parts</span>
-            <span><i class="bi bi-bar-chart"></i> Facile</span>
+            <span><i class="bi bi-clock"></i> 45 min</span>
+            <span><i class="bi bi-snow"></i> 6h au frais</span>
+            <span><i class="bi bi-people"></i> 6-8 parts</span>
           </div>
         </div>
         <div class="col-md-6 order-1 order-md-2 text-center">
           <div class="img-wrapper rounded-4 shadow">
             <img
-              id="recipe-image"
               class="img-fluid recipe-main-img"
-              src="https://via.placeholder.com/600x400?text=Chargement..."
-              alt="Cheesecake"
+              src="https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+              alt="Une magnifique charlotte aux fraises"
             />
           </div>
         </div>
@@ -54,7 +54,7 @@
 
       <section class="mb-5">
         <div class="d-flex align-items-center mb-4">
-          <h2 class="h3 fw-bold mb-0 title-font"><i class="bi bi-basket text-warning me-2"></i> Ingrédients</h2>
+          <h2 class="h3 fw-bold mb-0 title-font"><i class="bi bi-basket text-danger me-2"></i> Ingrédients</h2>
         </div>
         
         <div class="row g-4 justify-content-center" id="ingredients">
@@ -62,26 +62,33 @@
       </section>
 
       <section class="mb-5 bg-white p-4 p-md-5 rounded-4 shadow-sm">
-        <h2 class="h3 fw-bold border-bottom pb-3 mb-4 title-font"><i class="bi bi-list-ol text-warning me-2"></i> Préparation</h2>
+        <h2 class="h3 fw-bold border-bottom pb-3 mb-4 title-font"><i class="bi bi-list-ol text-danger me-2"></i> Préparation</h2>
         
         <ol class="step-list ps-0">
-          <li class="step-item"><p class="mb-0 text-secondary">Préchauffer le four à 180°C et beurrer généreusement un moule à charnière.</p></li>
-          <li class="step-item"><p class="mb-0 text-secondary">Réduire les biscuits (type Spéculoos ou Graham Crackers) en fines miettes à l'aide d'un mixeur ou d'un rouleau à pâtisserie.</p></li>
-          <li class="step-item"><p class="mb-0 text-secondary">Faire fondre le beurre et le mélanger intimement avec les miettes de biscuits dans un bol.</p></li>
-          <li class="step-item"><p class="mb-0 text-secondary">Tasser fermement ce mélange au fond du moule et cuire 10 minutes au four, puis laisser refroidir à température ambiante.</p></li>
-          <li class="step-item"><p class="mb-0 text-secondary">Baisser la température du four à 150°C (thermostat 5).</p></li>
-          <li class="step-item"><p class="mb-0 text-secondary">Dans un grand saladier, battre le fromage frais (type Philadelphia) jusqu'à ce qu'il soit bien lisse et crémeux.</p></li>
-          <li class="step-item"><p class="mb-0 text-secondary">Ajouter le sucre, l'extrait de vanille, et mélanger à faible vitesse pour ne pas incorporer trop d'air.</p></li>
-          <li class="step-item"><p class="mb-0 text-secondary">Ajouter les œufs un par un, en mélangeant délicatement et juste assez pour les incorporer après chaque ajout.</p></li>
-          <li class="step-item"><p class="mb-0 text-secondary">Incorporer la crème fraîche épaisse, puis verser la préparation sur la base de biscuits refroidie.</p></li>
-          <li class="step-item"><p class="mb-0 text-secondary">Cuire au four pendant 45 à 55 minutes. Les bords doivent être figés mais le centre encore légèrement tremblotant.</p></li>
-          <li class="step-item"><p class="mb-0 text-secondary">Éteindre le four, laisser le cheesecake dedans avec la porte entrouverte pendant 1h, puis réfrigérer au moins 4 heures avant de servir.</p></li>
+          <li class="step-item"><p class="mb-0 text-secondary">Laver, équeuter et couper les fraises en petits morceaux, en conservant les plus belles pour la décoration finale.</p></li>
+          <li class="step-item"><p class="mb-0 text-secondary">Faire ramollir les feuilles de gélatine dans un grand bol d'eau froide pendant environ 10 minutes.</p></li>
+          <li class="step-item"><p class="mb-0 text-secondary">Dans une petite casserole, faire tiédir un coulis de fraises (ou un peu de jus) à feu doux sans le porter à ébullition.</p></li>
+          <li class="step-item"><p class="mb-0 text-secondary">Hors du feu, incorporer la gélatine bien essorée dans le liquide chaud et mélanger jusqu'à dissolution complète.</p></li>
+          <li class="step-item"><p class="mb-0 text-secondary">Monter la crème liquide entière (qui doit être très froide) en chantilly bien ferme avec le sucre vanillé.</p></li>
+          <li class="step-item"><p class="mb-0 text-secondary">Incorporer délicatement la chantilly au mélange à la fraise refroidi à l'aide d'une maryse pour garder une texture mousseuse.</p></li>
+          <li class="step-item"><p class="mb-0 text-secondary">Dans une assiette creuse, diluer la liqueur de fraises des bois avec un peu d'eau pour le trempage des biscuits.</p></li>
+          <li class="step-item"><p class="mb-0 text-secondary">Imbiber très rapidement le côté plat des biscuits à la cuillère et tapisser le fond et les parois d'un moule à charlotte.</p></li>
+          <li class="step-item"><p class="mb-0 text-secondary">Verser la moitié de la mousse dans le moule, puis répartir une belle couche généreuse de morceaux de fraises fraîches.</p></li>
+          <li class="step-item"><p class="mb-0 text-secondary">Recouvrir avec le reste de la mousse, lisser la surface, et terminer par une dernière couche de biscuits imbibés.</p></li>
+          <li class="step-item"><p class="mb-0 text-secondary">Couvrir avec un film alimentaire, poser une petite assiette avec un poids dessus, et laisser prendre au réfrigérateur pendant au moins 6 heures.</p></li>
         </ol>
       </section>
 
       <footer class="text-center mt-5 pt-4 border-top">
-        <p class="text-muted small mb-2">
-          Fait avec passion pour le mini-projet de développement.
+        <p class="text-muted small mb-1">
+          <a href="https://www.marmiton.org/" target="_blank" class="text-decoration-none text-secondary">
+            Source de la recette : Marmiton
+          </a>
+        </p>
+        <p class="text-muted small">
+          <a href="https://www.flaticon.com/fr/icones-gratuites/chapeau-de-cuisinier" title="chapeau de cuisinier icônes" class="text-decoration-none text-secondary">
+            Source de l'icône de toque : Freepik - Flaticon
+          </a>
         </p>
       </footer>
 
